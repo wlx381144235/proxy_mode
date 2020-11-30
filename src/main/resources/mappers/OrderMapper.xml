@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xizi.proxy_mode.mapper.OrderMapper">
+
+    <insert id="create" parameterType="com.xizi.proxy_mode.pojo.XxOrder">
+        INSERT INTO xx_order (id,order_name, `time`) VALUES (#{id}, #{orderName}, #{time});
+    </insert>
+</mapper>

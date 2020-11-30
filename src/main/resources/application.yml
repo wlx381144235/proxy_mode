@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    2020:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql://127.0.0.1:3306/2020?zeroDateTimeBehavior=CONVERT_TO_NULL&&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false&nullCatalogMeansCurrent=true
+    2021:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql://127.0.0.1:3306/2021?zeroDateTimeBehavior=CONVERT_TO_NULL&&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false&nullCatalogMeansCurrent=true
+
+
+mybatis:
+  type-aliases-package: com.xizi.proxy_mode.pojo
+#  mapper-locations: classpath:/mappers/*.xml
