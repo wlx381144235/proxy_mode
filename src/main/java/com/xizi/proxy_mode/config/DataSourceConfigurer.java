@@ -16,9 +16,8 @@ import java.util.Map;
 /**
  * Multiple DataSource Configurer
  *
- * @author HelloWood
- * @date 2017 -08-15 11:37
- * @Email hellowoodes @gmail.com
+ * @author 夜尽
+ * @date 2020年11月30日15:57:36
  */
 @Configuration
 public class DataSourceConfigurer {

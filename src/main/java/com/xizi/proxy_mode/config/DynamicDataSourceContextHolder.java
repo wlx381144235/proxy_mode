@@ -12,9 +12,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Multiple DataSource Context Holder
  *
- * @author HelloWood
- * @date 2017 -08-15 14:26
- * @Email hellowoodes @gmail.com
+ * @author 夜尽
+ * @date 2020年11月30日15:53:20
  */
 public class DynamicDataSourceContextHolder {
 
