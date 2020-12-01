@@ -1,4 +1,4 @@
-package com.xizi.proxy_mode.service.impl;
+package com.xizi.proxy_mode.proxy.staticProxy;
 
 import com.xizi.proxy_mode.config.DataSourceKey;
 import com.xizi.proxy_mode.config.DynamicDataSourceContextHolder;

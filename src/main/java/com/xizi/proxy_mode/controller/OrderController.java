@@ -1,8 +1,9 @@
 package com.xizi.proxy_mode.controller;
 
 import com.xizi.proxy_mode.pojo.XxOrder;
+import com.xizi.proxy_mode.proxy.dynamic.ServiceDynamicProxy;
 import com.xizi.proxy_mode.service.OrderService;
-import com.xizi.proxy_mode.service.impl.OrderServiceProxy;
+import com.xizi.proxy_mode.service.impl.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +27,11 @@ public class OrderController {
     @PostMapping("/create")
     public void create(XxOrder xxOrder){
         orderService.createOrder(xxOrder);
+    }
+    
+    @PostMapping("/create2")
+    public void create2(XxOrder xxOrder){
+        OrderService dynamicOrderService = (OrderService) new ServiceDynamicProxy().getInstance(new OrderServiceImpl());
+        dynamicOrderService.createOrder(xxOrder);
     }
 }
