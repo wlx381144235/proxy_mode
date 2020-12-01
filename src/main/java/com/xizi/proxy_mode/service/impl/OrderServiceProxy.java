@@ -5,6 +5,7 @@ import com.xizi.proxy_mode.config.DynamicDataSourceContextHolder;
 import com.xizi.proxy_mode.pojo.XxOrder;
 import com.xizi.proxy_mode.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,11 +16,13 @@ import javax.annotation.Resource;
  */
 @Service
 @Slf4j
-public class OrderServiceProxy {
+public class OrderServiceProxy implements OrderService {
     
     @Resource
+    @Qualifier("orderServiceImpl")
     private OrderService orderService;
     
+    @Override
     public String createOrder(XxOrder xxOrder) {
         before(xxOrder);
         orderService.createOrder(xxOrder);

@@ -1,7 +1,9 @@
 package com.xizi.proxy_mode.controller;
 
 import com.xizi.proxy_mode.pojo.XxOrder;
+import com.xizi.proxy_mode.service.OrderService;
 import com.xizi.proxy_mode.service.impl.OrderServiceProxy;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,10 +20,11 @@ import javax.annotation.Resource;
 public class OrderController {
     
     @Resource
-    private OrderServiceProxy orderServiceProxy;
+    @Qualifier("orderServiceProxy")
+    private OrderService orderService;
     
     @PostMapping("/create")
     public void create(XxOrder xxOrder){
-        orderServiceProxy.createOrder(xxOrder);
+        orderService.createOrder(xxOrder);
     }
 }
