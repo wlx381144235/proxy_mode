@@ -2,9 +2,7 @@ package com.xizi.proxy_mode.restaurant;
 
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.HashMap;
 
 /** 服务员类
  * @author 夜尽
@@ -13,30 +11,25 @@ import java.util.Objects;
 
 @Data
 public class Waitress {
-    private ArrayList<MenuItem> breakfast;
-    private MenuItem[] launch;
+    private HashMap<String,Iterator> menus;
     
-    public Waitress(ArrayList<MenuItem> breakfast, MenuItem[] launch) {
-        this.breakfast = breakfast;
-        this.launch = launch;
+    public Waitress(HashMap<String,Iterator> menus) {
+        this.menus = menus;
     }
     
     public void printItem(){
-        breakfast.forEach(System.out::println);
-    
-        Arrays.stream(launch).forEach(System.out::println);
+        menus.forEach((k,v) -> v.printMenu());
     }
     
     public void printBreakFast(){
-        breakfast.forEach(System.out::println);
+        menus.get("breakfast").printMenu();
     }
     
     public void printLaunch(){
-        Arrays.stream(launch).forEach(System.out::println);
+        menus.get("launch").printMenu();
     }
     
     public void printVegetarian(){
-        breakfast.stream().filter(MenuItem::isVagetarian).forEach(System.out::println);
-        Arrays.stream(launch).filter(Objects::nonNull).filter(MenuItem::isVagetarian).forEach(System.out::println);
+        menus.forEach((k,v) -> v.printVegetarian());
     }
 }

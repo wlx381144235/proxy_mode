@@ -1,5 +1,7 @@
 package com.xizi.proxy_mode.restaurant;
 
+import java.util.HashMap;
+
 /**
  * @author 夜尽
  * @date 2020/12/7 16:14
@@ -7,7 +9,10 @@ package com.xizi.proxy_mode.restaurant;
 
 public class Test {
     public static void main(String[] args) {
-        Waitress alice = new Waitress(new Breakfast().getMenuItems(),new Lunch().getMenuItems());
+        HashMap<String,Iterator> map = new HashMap<>();
+        map.put("breakfast",new Breakfast());
+        map.put("launch",new Lunch());
+        Waitress alice = new Waitress(map);
         alice.printItem();
         System.out.println("=================================");
         alice.printBreakFast();

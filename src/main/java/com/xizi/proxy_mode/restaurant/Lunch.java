@@ -2,13 +2,16 @@ package com.xizi.proxy_mode.restaurant;
 
 import lombok.Data;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /** 午餐饭店
  * @author 夜尽
  * @date 2020/12/7 15:48
  */
 
 @Data
-public class Lunch {
+public class Lunch implements Iterator {
 
     private static int MAX_ITEMS = 6;
     private int numOfMenu = 0;
@@ -29,5 +32,15 @@ public class Lunch {
             menuItems[numOfMenu] = menuItem;
             numOfMenu += 1;
         }
+    }
+    
+    @Override
+    public void printMenu() {
+        Arrays.stream(menuItems).filter(Objects::nonNull).forEach(System.out::println);
+    }
+    
+    @Override
+    public void printVegetarian() {
+       Arrays.stream(menuItems).filter(Objects::nonNull).filter(MenuItem::isVagetarian).forEach(System.out::println);
     }
 }

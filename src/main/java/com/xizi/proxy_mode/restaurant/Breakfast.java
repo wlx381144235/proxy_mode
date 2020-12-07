@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 
 @Data
-public class Breakfast {
+public class Breakfast implements Iterator {
 
     private ArrayList<MenuItem> menuItems;
     
@@ -25,5 +25,15 @@ public class Breakfast {
         addItem(new MenuItem("豆浆","豆制品",true,1.8));
         addItem(new MenuItem("丸子","肉丸子",false,2.5));
         
+    }
+    
+    @Override
+    public void printMenu() {
+        menuItems.forEach(System.out::println);
+    }
+    
+    @Override
+    public void printVegetarian() {
+        menuItems.stream().filter(MenuItem::isVagetarian).forEach(System.out::println);
     }
 }
