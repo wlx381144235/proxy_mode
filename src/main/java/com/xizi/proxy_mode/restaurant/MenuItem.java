@@ -1,14 +1,16 @@
 package com.xizi.proxy_mode.restaurant;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /** 菜品实例对象
  * @author 夜尽
  * @date 2020/12/7 15:51
  */
 
+@EqualsAndHashCode(callSuper = false)
 @Data
-public class MenuItem {
+public class MenuItem extends MenuComponent {
 
     private String name;
     private String description;
@@ -20,5 +22,10 @@ public class MenuItem {
         this.description = description;
         this.isVagetarian = isVagetarian;
         this.price = price;
+    }
+    
+    @Override
+    public void print() {
+        System.out.println(this.toString());
     }
 }

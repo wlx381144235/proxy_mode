@@ -10,34 +10,36 @@ import lombok.Data;
 
 @Data
 public class Waitress {
-    private Iterator breakfast;
-    private Iterator lunch;
+    private MenuComponent menuComponent;
     
-    public Waitress(Breakfast breakfast,Lunch lunch) {
-        this.breakfast = breakfast;
-        this.lunch = lunch;
+    public Waitress(MenuComponent menuComponent) {
+        this.menuComponent = menuComponent;
     }
     
-    public void printItem(){
-        Menu breakfastIterator = breakfast.getIterator();
-        printItem(breakfastIterator);
-        Menu lunchIterator = lunch.getIterator();
-        printItem(lunchIterator);
-    }
-    public void printItem(Menu iterator){
-        while(iterator.hasNext()){
-            MenuItem menuItem = (MenuItem) iterator.next();
-            System.out.println(menuItem);
-        }
+    public void printMenu(){
+        menuComponent.print();
     }
     
-    public void printBreakFast(){
-        printItem(breakfast.getIterator());
-    }
-    
-    public void printLaunch(){
-        printItem(lunch.getIterator());
-    }
+//    public void printItem(){
+//        Menu breakfastIterator = breakfast.getIterator();
+//        printItem(breakfastIterator);
+//        Menu lunchIterator = lunch.getIterator();
+//        printItem(lunchIterator);
+//    }
+//    public void printItem(Menu iterator){
+//        while(iterator.hasNext()){
+//            MenuItem menuItem = (MenuItem) iterator.next();
+//            System.out.println(menuItem);
+//        }
+//    }
+//
+//    public void printBreakFast(){
+//        printItem(breakfast.getIterator());
+//    }
+//
+//    public void printLaunch(){
+//        printItem(lunch.getIterator());
+//    }
     
 //    public void printVegetarian(){
 //        menus.forEach((k,v) -> v.printVegetarian());
