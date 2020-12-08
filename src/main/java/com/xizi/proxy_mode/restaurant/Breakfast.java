@@ -3,7 +3,6 @@ package com.xizi.proxy_mode.restaurant;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /** 早餐饭店
  * @author 夜尽
@@ -11,7 +10,7 @@ import java.util.Iterator;
  */
 
 @Data
-public class Breakfast {
+public class Breakfast implements Iterator {
 
     private ArrayList<MenuItem> menuItems;
     

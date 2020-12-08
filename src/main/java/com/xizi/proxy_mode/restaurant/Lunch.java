@@ -8,7 +8,7 @@ import lombok.Data;
  */
 
 @Data
-public class Lunch {
+public class Lunch implements Iterator {
 
     private static int MAX_ITEMS = 6;
     private int numOfMenu = 0;

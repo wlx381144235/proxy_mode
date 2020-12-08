@@ -10,8 +10,8 @@ import lombok.Data;
 
 @Data
 public class Waitress {
-    private Breakfast breakfast;
-    private Lunch lunch;
+    private Iterator breakfast;
+    private Iterator lunch;
     
     public Waitress(Breakfast breakfast,Lunch lunch) {
         this.breakfast = breakfast;
