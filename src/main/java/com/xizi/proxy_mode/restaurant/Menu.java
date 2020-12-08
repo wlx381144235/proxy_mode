@@ -5,7 +5,7 @@ package com.xizi.proxy_mode.restaurant;
  * @date 2020/12/7 16:28
  */
 
-public interface Iterator {
-    void printMenu();
-    void printVegetarian();
+public interface Menu {
+    boolean hasNext();
+    Object next();
 }

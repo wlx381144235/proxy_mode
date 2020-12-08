@@ -3,6 +3,7 @@ package com.xizi.proxy_mode.restaurant;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /** 早餐饭店
  * @author 夜尽
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  */
 
 @Data
-public class Breakfast implements Iterator {
+public class Breakfast {
 
     private ArrayList<MenuItem> menuItems;
     
@@ -27,13 +28,7 @@ public class Breakfast implements Iterator {
         
     }
     
-    @Override
-    public void printMenu() {
-        menuItems.forEach(System.out::println);
-    }
-    
-    @Override
-    public void printVegetarian() {
-        menuItems.stream().filter(MenuItem::isVagetarian).forEach(System.out::println);
+    public Menu getIterator(){
+        return new BreakfastMenu(this.menuItems);
     }
 }
